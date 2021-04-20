@@ -1,0 +1,35 @@
+<div class="filter">
+        <table>
+                <th>
+                        <h2 style="color: #fe4800;">Filter</h2>
+                </th>
+                <tr>
+                        <td>
+                                <h5>Language</h5><br>
+                                <button (click)="Lan('Telugu')"> Telugu</button>
+                                <button (click)="Lan('English')"> English</button>
+                                <button (click)="Lan('Hindi')"> Hindi</button>
+                        </td>
+
+                </tr>
+                <tr>
+                        <td>
+                                <h5>Genres</h5><br>
+                                <button (click)="Genres('Action')"> Action</button>
+                                <button (click)="Genres('Adventure')"> Adventure</button>
+                                <button (click)="Genres('Comedy')"> Comedy</button><br>
+                                <button (click)="Genres('Drama')"> Drama</button>
+                                <button (click)="Genres('Thriller')"> Thriller</button>
+                                <button (click)="Genres('Horror')"> Horror</button>
+                        </td>
+                </tr>
+        </table>
+</div>
+<ul id="sub">
+        <li *ngFor="let i of movie">
+                <div *ngIf="i.visible">
+                        <img [src]="i.image" [alt]="i.name" height="300" width="200"><br>
+                        <p>{{i.name}}</p>
+                </div>
+        </li>
+</ul>

@@ -1,0 +1,86 @@
+<header>
+  <table>
+    <tr>
+      <th>
+        <h3><a href=""><button style="background-color:rgba(89, 88, 100 );">bookmyshow</button></a></h3>
+      </th>
+      <th><input class="search" name="search" id="search" type="text"
+          placeholder="Search for Movies,Events,Plays,Sports and Activities"></th>
+      <th>
+
+        <div class="dropdown">
+          <button class="dropbtn">Location</button>
+          <div class="dropdown-content">
+            <a href="#">Vijayawada</a>
+            <a href="#">Hyderabad</a>
+            <a href="#">Mumbai</a>
+            <a href="#">Delhi</a>
+          </div>
+        </div>
+      </th>
+      <th><button class="btn btn-primary" (click)="navigate(13)">SignUp</button></th>
+      <th><button class="btn btn-primary" (click)="navigate(14)">Login</button></th>
+    </tr>
+  </table>
+</header>
+<div class="nav1">
+  <a routerLink="/Movies"><button (click)="Nav(1)">Movies</button></a>
+  <a routerLink="/Hollywood"><button (click)="Nav(2)">Stream</button></a>
+  <a routerLink="/Bollywood"><button (click)="Nav(3)">Events</button></a>
+  <a href=""><button (click)="Nav(4)">Plays</button></a>
+  <a href=""><button (click)="Nav(5)">Sports</button></a>
+  <a href=""><button (click)="Nav(6)">Activities</button></a>
+  <a href=""><button (click)="Nav(7)">Fanhood</button></a>
+  <a style="margin-right: 300px;" href=""><button (click)="Nav(8)">Buzz</button></a>
+  <a href=""><button (click)="Nav(9)">ListYourShow</button></a>
+  <a href=""><button (click)="Nav(10)">Coorporates</button></a>
+  <a href=""><button (click)="Nav(11)">Offers</button></a>
+  <a href=""><button (click)="Nav(12)">Gift Cards</button></a>
+</div>
+<router-outlet></router-outlet>
+<div class="slider">
+  <figure>
+    <img src="https://in.bmscdn.com/showcaseimage/eventimage/ncpa--citi-aadi-anant-16-04-2021-11-59-34-601.jpg">
+    <img src="https://in.bmscdn.com/showcaseimage/eventimage/dabang-ips-12-03-2021-02-38-07-089.jpg">
+    <img
+      src="https://in.bmscdn.com/showcaseimage/eventimage/summer-express-2021-online-workshops-for-children-15-04-2021-12-07-57-009.jpg">
+    <img
+      src="https://in.bmscdn.com/showcaseimage/eventimage/sadhguru-live-with-chetan-bhagat--get-a-free-book-07-04-2021-04-24-11-530.jpg">
+    <img src="https://in.bmscdn.com/showcaseimage/eventimage/ncpa--citi-aadi-anant-16-04-2021-11-59-34-601.jpg">
+  </figure>
+</div>
+<div style="min-height: 150vh;">
+  <div class="main" *ngIf="page[0]">
+    &nbsp;<h3>Recommended Movies</h3>
+    <ul>
+      <li *ngFor="let i of movie">
+        <img [src]="i.image" height="300" width="200" alt="i.name" />
+        <p>{{i.name}}</p>
+      </li>
+    </ul>
+    <img src="/assets/stream.png" style="padding:33px;margin-left:10%;" width="80%">
+  </div>
+</div>
+<button (click)="slickModal.slickPrev()">
+  <h2>X</h2>
+</button>
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+  <div ngxSlickItem *ngFor="let slide of movie" class="slide">
+    <img [src]="slide.image" alt="" height="300" width="200" [alt]="slide.name">
+  </div>
+</ngx-slick-carousel>
+<button (click)="slickModal.slickPrev()">
+  <h2>X</h2>
+</button>
+
+<footer style="background-color:rgba(81, 81, 84);color:white;">
+  By using www.bookmyshow.com(our website), you are fully accepting the Privacy Policy available at governing your
+  access to Bookmyshow and provision of services by Bookmyshow to you. If you do not accept terms mentioned in the ,
+  you
+  must not share any of your personal information and immediately exit Bookmyshow.
+  <br>Countries<br>
+  &nbsp; Indonesia &nbsp; Singapore &nbsp; UAE &nbsp; Sri Lanka &nbsp; West Indies
+  <br>Help<br>
+  &nbsp; About Us &nbsp; Contact Us &nbsp; Current Openings &nbsp; Press Release &nbsp; Press Coverage &nbsp; Terms
+  &amp; Conditions &nbsp; Privacy Policy &nbsp; FAQs &nbsp; Sitemap
+</footer>
